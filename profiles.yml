@@ -1,5 +1,5 @@
-dbtlearn:
-  target: dolgormaa_db
+dbt:
+  target: claude_db
   outputs:
     dolgormaa_db:
       type: singlestore
@@ -9,6 +9,30 @@ dbtlearn:
       password: N0v3Lpa2sw0rd
       database: dolgormaa_db
       schema: dolgormaa_db
+      ssl_disabled: true
+      keepalives_idle: 0
+      threads: 4
+
+    dolgormaa_db2:
+      type: singlestore
+      host: demo.novelsoft.mn
+      port: 30222
+      user: dolgormaa
+      password: N0v3Lpa2sw0rd
+      database: dolgormaa_db2
+      schema: dolgormaa_db2
+      ssl_disabled: true
+      keepalives_idle: 0
+      threads: 4
+
+    claude_db:
+      type: singlestore
+      host: demo.novelsoft.mn
+      port: 30222
+      user: dolgormaa
+      password: N0v3Lpa2sw0rd
+      database: claude_db
+      schema: claude_db
       ssl_disabled: true
       keepalives_idle: 0
       threads: 4

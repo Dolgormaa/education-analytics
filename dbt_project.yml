@@ -2,7 +2,7 @@ name: 'dwh'
 version: '1.0.0'
 config-version: 2
 
-profile: 'dbtlearn'
+profile: 'dbt'
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -14,3 +14,57 @@ snapshot-paths: ["snapshots"]
 clean-targets:
   - "target"
   - "dbt_packages"
+
+seeds:
+  dwh:
+    WB_WDI_sample:
+      +column_types:
+        STRUCTURE: varchar(100)
+        STRUCTURE_ID: varchar(100)
+        ACTION: varchar(10)
+        FREQ: varchar(10)
+        REF_AREA: varchar(10)
+        INDICATOR: varchar(100)
+        SEX: varchar(10)
+        AGE: varchar(10)
+        URBANISATION: varchar(10)
+        UNIT_MEASURE: varchar(100)
+        COMP_BREAKDOWN_1: varchar(10)
+        COMP_BREAKDOWN_2: varchar(10)
+        COMP_BREAKDOWN_3: varchar(10)
+        TIME_PERIOD: varchar(10)
+        AGG_METHOD: varchar(10)
+        UNIT_TYPE: varchar(100)
+        DECIMALS: varchar(10)
+        DATABASE_ID: varchar(100)
+        TIME_FORMAT: varchar(10)
+        COMMENT_TS: text
+        UNIT_MULT: varchar(10)
+        DATA_SOURCE: varchar(100)
+        OBS_CONF: varchar(10)
+        OBS_VALUE: varchar(100)
+        OBS_STATUS: varchar(10)
+        FREQ_LABEL: varchar(100)
+        REF_AREA_LABEL: text
+        INDICATOR_LABEL: text
+        SEX_LABEL: varchar(100)
+        AGE_LABEL: text
+        URBANISATION_LABEL: varchar(100)
+        UNIT_MEASURE_LABEL: text
+        COMP_BREAKDOWN_1_LABEL: varchar(100)
+        COMP_BREAKDOWN_2_LABEL: varchar(100)
+        COMP_BREAKDOWN_3_LABEL: varchar(100)
+        AGG_METHOD_LABEL: varchar(100)
+        UNIT_TYPE_LABEL: varchar(100)
+        DECIMALS_LABEL: varchar(100)
+        DATABASE_ID_LABEL: text
+        TIME_FORMAT_LABEL: varchar(100)
+        UNIT_MULT_LABEL: varchar(100)
+        OBS_STATUS_LABEL: varchar(100)
+        OBS_CONF_LABEL: varchar(100)
+    p_edu:
+      +column_types:
+        "Country Name": text
+        "Country Code": varchar(10)
+        "Indicator Name": text
+        "Indicator Code": varchar(50)
