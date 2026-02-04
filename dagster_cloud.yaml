@@ -1,0 +1,6 @@
+locations:
+- build:
+    directory: ./dbt_edu
+  code_source:
+    module_name: dbt_edu.definitions
+  location_name: dbt_edu
