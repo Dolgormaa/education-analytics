@@ -1,0 +1,6 @@
+locations:
+  - location_name: education_analytics
+    code_source:
+      module_name: education_analytics
+    executable_path: python
+    attribute: defs
