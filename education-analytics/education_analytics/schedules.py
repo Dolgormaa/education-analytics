@@ -7,22 +7,24 @@ from dagster import (
     AssetSelection
 )
 
-# Import your dbt assets
-from dagster_project.assets import dbt_assets
+# Import local assets from definitions
+from .definitions import (
+    taz_dim_date,
+    taz_dim_location,
+    dbt_education_models
+)
 
 # Daily job → specific dbt model
 daily_dbt_job = define_asset_job(
     name="daily_dbt_job",
-    selection=AssetSelection.keys("country_year_mapping")
+    selection=AssetSelection.keys("dbt_education_models")
 )
-
 
 # Hourly job → run all dbt models
 hourly_dbt_job = define_asset_job(
     name="hourly_dbt_job",
-    selection=AssetSelection.assets(dbt_assets)
+    selection=AssetSelection.all()
 )
-
 
 # --------------------------------------------------
 # SCHEDULE DEFINITIONS
@@ -34,7 +36,6 @@ daily_dbt_schedule = ScheduleDefinition(
     cron_schedule="0 2 * * *",
     default_status=DefaultScheduleStatus.RUNNING,
 )
-
 
 # Hourly schedule
 hourly_dbt_schedule = ScheduleDefinition(
